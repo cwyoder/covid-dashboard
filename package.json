@@ -1,0 +1,32 @@
+{
+  "name": "covid-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "node server",
+    "build:dev": "npm run build -- --watch --mode development",
+    "start:dev": "nodemon server --ignore dist/ --ignore client/ & npm run build:dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "volleyball": "^1.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "axios": "^0.21.0",
+    "babel-loader": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
+  }
+}
