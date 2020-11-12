@@ -1,6 +1,7 @@
 import React from 'react';
 import BarChart from './BarChart';
 import axios from 'axios';
+import { intervalAverages } from '../utils';
 
 export default class Home extends React.Component {
   constructor(){

@@ -1,5 +1,5 @@
 import React from 'react';
-import { scaleLinear, scaleBand, max, select, range } from 'd3';
+import { scaleLinear, scaleBand, max, select, range, line } from 'd3';
 import { intervalAverages } from '../utils';
 
 export default class BarChart extends React.Component {
@@ -22,38 +22,43 @@ export default class BarChart extends React.Component {
       .reverse();
     const averages = intervalAverages(dataToChart, 7);
 
-    console.log('data:', dataToChart)
-    console.log('averages:', averages)
+    // console.log('data:', dataToChart)
+    // console.log('averages:', averages)
 
-    const dataMax = max(dataToChart)
+    const dataMax = max(dataToChart);
     const yScale = scaleLinear()
       .domain([0, dataMax])
       .range([0, this.props.size[1]])
+
+    const yScaleAvg = scaleLinear()
+      .domain([0, dataMax])
+      .range([this.props.size[1], 0])
 
     const xScale = scaleBand()
       .domain(range(this.props.data.length))
       .rangeRound([0, this.props.size[0]])
 
-    select(node)
-      .selectAll('rect')
-      .data(dataToChart)
-      .enter()
-      .append('rect')
+    const avgLine = line()
+      .x((d, idx) => xScale(idx) + (xScale.bandwidth() / 2))
+      .y(d => yScaleAvg(d))
 
-    select(node)
-      .selectAll('rect')
+    select(node).append('g')
+        .attr("fill", "steelblue")
+        .attr("fill-opacity", 0.6)
+      .selectAll("rect")
       .data(dataToChart)
-      .exit()
-      .remove()
+      .join("rect")
+        .attr('x', (d,i) => xScale(i))
+        .attr('y', d => this.props.size[1] - yScale(d))
+        .attr('height', d => yScale(d))
+        .attr('width', xScale.bandwidth());
 
-    select(node)
-      .selectAll('rect')
-      .data(dataToChart)
-      .attr('x', (d,i) => xScale(i))
-      .attr('y', d => this.props.size[1] - yScale(d))
-      .attr('height', d => yScale(d))
-      .attr('width', xScale.bandwidth())
-      .style('fill', '#fe9922')
+    select(node).append("path")
+      .attr("fill", "none")
+      .attr("stroke", "currentColor")
+      .attr("stroke-miterlimit", 1)
+      .attr("stroke-width", 3)
+      .attr("d", avgLine(averages));
   }
 
   render() {
