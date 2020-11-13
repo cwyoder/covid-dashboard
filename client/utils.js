@@ -1,7 +1,14 @@
-export const intervalAverages = (array, interval) => {
-  return array.map((val, idx, arr) => {
-    if (idx < interval - 1) return 0;
+export const intervalAverages = (array, interval, key) => {
+  return array.map((obj, idx, arr) => {
+    let avg = 0;
+    if (idx < interval - 1) {
+      obj.average = avg;
+      return obj;
+    }
     const subArr = arr.slice((idx + 1 - interval), idx + 1);
-    return (subArr.reduce((acc, el)=> acc + el) / interval);
+    avg = (subArr.reduce((acc, el)=> acc + el[key], 0) / interval);
+    console.log(idx, subArr, avg);
+    obj.average = avg;
+    return obj;
   })
 }
