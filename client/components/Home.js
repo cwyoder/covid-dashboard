@@ -22,10 +22,9 @@ export default class Home extends React.Component {
       <div>
         <h1>Home</h1>
         <h2>cases</h2>
-        <BarChart data={data} size={[800,400]} objKey='positiveIncrease'/>
+        <BarChart data={data} size={[800,400]} objKey='positiveIncrease' color={'#C70039'}/>
         <h2>deaths</h2>
-        <BarChart data={data} size={[800,400]} objKey='deathIncrease'/>
-
+        <BarChart data={data} size={[800,400]} objKey='deathIncrease' color={'#363636'}/>
       </div>
     )
   }

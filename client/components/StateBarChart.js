@@ -1,6 +1,6 @@
 import React from 'react';
 import { scaleLinear, scaleBand, scaleTime, max, select, range, timeMonth, line, axisBottom, axisLeft } from 'd3';
-import { intervalAverages } from '../utils';
+import { intervalAverages, dateConverter } from '../utils';
 
 export default class BarChart extends React.Component {
   constructor(props){
@@ -18,8 +18,13 @@ export default class BarChart extends React.Component {
 
   createBarChart() {
     const node = this.node
-    const dataCopy = this.props.data.slice(0).reverse();
+    const dataCopy = this.props.data.slice(0).map(d => {
+      d.date = dateConverter(d.date);
+      return d;
+    }).reverse();
     const averages = intervalAverages(dataCopy, 7, this.props.objKey);
+
+    console.log(dataCopy);
 
     const margin = {top: 20, right: 30, bottom: 30, left: 40};
 
@@ -34,14 +39,14 @@ export default class BarChart extends React.Component {
       .domain([0, dataMax])
       .rangeRound([this.props.size[1] - margin.bottom, margin.top])
 
-    const xDomain = this.props.data.length > 0 ? [Date.parse(dataCopy[0].dateChecked), Date.parse(dataCopy[dataCopy.length - 1].dateChecked)] : [0,1]
+    const xDomain = this.props.data.length > 0 ? [Date.parse(dataCopy[0].date), Date.parse(dataCopy[dataCopy.length - 1].date)] : [0,1]
 
     const xScale = scaleTime()
       .domain(xDomain)
       .range([margin.left, this.props.size[0] - margin.right])
 
     const avgLine = line()
-      .x(d => xScale(Date.parse(d.dateChecked)) + (wbar / 2))
+      .x(d => xScale(Date.parse(d.date)) + (wbar / 2))
       .y(d => yScaleAvg(d.average))
 
     select(node).append("g")
@@ -58,7 +63,7 @@ export default class BarChart extends React.Component {
       .selectAll("rect")
       .data(dataCopy)
       .join("rect")
-        .attr('x', (d,i) => xScale(Date.parse(d.dateChecked)))
+        .attr('x', (d,i) => xScale(Date.parse(d.date)))
         .attr('y', d => yScaleAvg(d[this.props.objKey]) )
         .attr('height', d => {
           // console.log(d[this.props.objKey]);
