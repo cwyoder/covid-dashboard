@@ -20,11 +20,10 @@ export default class BarChart extends React.Component {
     const node = this.node
     const dataCopy = this.props.data.slice(0).map(d => {
       d.date = dateConverter(d.date);
+      if (d[this.props.objKey] < 0) d[this.props.objKey] = 0;
       return d;
     }).reverse();
     const averages = intervalAverages(dataCopy, 7, this.props.objKey);
-
-    console.log(dataCopy);
 
     const margin = {top: 20, right: 30, bottom: 30, left: 40};
 
@@ -71,13 +70,6 @@ export default class BarChart extends React.Component {
         })
         .attr('width', wbar);
 
-    select(node).append("path")
-      .attr("fill", "none")
-      .attr("stroke", this.props.color)
-      .attr("stroke-miterlimit", 1)
-      .attr("stroke-width", 4)
-      .attr("d", avgLine(averages));
-
     select(node).append("g")
       .attr("class", "y-axis")
       .attr("transform", `translate(${margin.left},0)`)
@@ -90,6 +82,12 @@ export default class BarChart extends React.Component {
       .call(axisBottom(xScale).ticks(timeMonth))
       .call(g => g.select(".domain").remove());
 
+    select(node).append("path")
+    .attr("fill", "none")
+    .attr("stroke", this.props.color)
+    .attr("stroke-miterlimit", 1)
+    .attr("stroke-width", 4)
+    .attr("d", avgLine(averages));
   }
 
   render() {

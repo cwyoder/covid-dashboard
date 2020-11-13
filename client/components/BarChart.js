@@ -66,13 +66,6 @@ export default class BarChart extends React.Component {
         })
         .attr('width', wbar);
 
-    select(node).append("path")
-      .attr("fill", "none")
-      .attr("stroke", this.props.color)
-      .attr("stroke-miterlimit", 1)
-      .attr("stroke-width", 4)
-      .attr("d", avgLine(averages));
-
     select(node).append("g")
       .attr("class", "y-axis")
       .attr("transform", `translate(${margin.left},0)`)
@@ -85,6 +78,12 @@ export default class BarChart extends React.Component {
       .call(axisBottom(xScale).ticks(timeMonth))
       .call(g => g.select(".domain").remove());
 
+      select(node).append("path")
+      .attr("fill", "none")
+      .attr("stroke", this.props.color)
+      .attr("stroke-miterlimit", 1)
+      .attr("stroke-width", 4)
+      .attr("d", avgLine(averages));
   }
 
   render() {

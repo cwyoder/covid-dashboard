@@ -17,6 +17,9 @@ export default class Navbar extends React.Component{
         <div className='nav-items'>
           <ul>
             <li>
+              <Link className="navbar-link" to="/">U.S. total</Link>
+            </li>
+            <li>
               <Link className="navbar-link" to="/states">By State</Link>
             </li>
             <li>

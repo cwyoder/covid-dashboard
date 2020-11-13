@@ -22,7 +22,7 @@ export default class States extends React.Component {
     return (
       <div>
         <h1>State selector</h1>
-        <table>
+        <table className='state-table'>
           <thead>
             <tr>
               <th>State</th>
@@ -42,8 +42,8 @@ export default class States extends React.Component {
                       {stateHash[st.state]}
                     </Link>
                   </td>
-                  <td>{st.positiveIncrease}</td>
-                  <td>{st.positive}</td>
+                  <td>{st.positiveIncrease.toLocaleString()}</td>
+                  <td>{st.positive.toLocaleString()}</td>
                   <td className='ital-cell'>{st.lastUpdateEt}</td>
                 </tr>
               )

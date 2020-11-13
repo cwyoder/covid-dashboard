@@ -14,8 +14,6 @@ export const intervalAverages = (array, interval, key) => {
 }
 
 export const dateConverter = dateStr => {
-  console.log(dateStr);
-
   if (typeof dateStr === 'number') {
     const newStr = String(dateStr);
     const year = newStr.substring(0,4);
@@ -23,7 +21,6 @@ export const dateConverter = dateStr => {
     const day = newStr.substring(6,8);
 
     const date = new Date(year, month-1, day);
-    console.log(date);
     return date;
   }
   return dateStr;
