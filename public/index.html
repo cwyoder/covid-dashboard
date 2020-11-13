@@ -2,8 +2,21 @@
 <html>
   <head>
     <title>COVID Dashboard</title>
+    <!-- <link rel='stylesheet' href='/style.css' /> -->
+    <style>
+      .tick line {
+        stroke: lightgray;
+      }
+      .tick:first-child line {
+        stroke: black;
+        stroke-width: 2px;
+      }
+      .tick text {
+        font-size: 12px;
+      }
+
+    </style>
   </head>
-  <!-- <link rel='stylesheet' href='/style.css' /> -->
   <script src='/dist/main.js' defer></script>
   <body>
     <div id='root'></div>
