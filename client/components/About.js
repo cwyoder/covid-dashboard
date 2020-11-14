@@ -3,8 +3,10 @@ import React from 'react';
 const About = (props) => {
   return (
     <div>
-      <h2>About</h2>
-      <p>This is the information about the project</p>
+      <h1>About</h1>
+      <div className='about'>
+        <p>This is the information about the project</p>
+      </div>
     </div>
   )
 }

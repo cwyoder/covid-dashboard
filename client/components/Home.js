@@ -3,6 +3,7 @@ import BarChart from './BarChart';
 import axios from 'axios';
 import { dateConverter } from '../utils';
 import { dateOptions } from '../constants';
+import { Key } from './Key';
 
 export default class Home extends React.Component {
   constructor(){
@@ -39,7 +40,10 @@ export default class Home extends React.Component {
               <p className='total'>{latestData.positive.toLocaleString()} total cases reported</p>
             </div> : ''
           }
-          <BarChart data={data} size={[1000,500]} objKey='positiveIncrease' color={'#BA181B'}/>
+          <div className='chart-container'>
+            <BarChart data={data} size={[1080,500]} objKey='positiveIncrease' color={'#BA181B'}/>
+            <Key statistic="cases" />
+          </div>
         </div>
         <div className='section-container'>
           {
@@ -48,7 +52,10 @@ export default class Home extends React.Component {
               <p className='total'>{latestData.death.toLocaleString()} total deaths reported</p>
             </div> : ''
           }
-          <BarChart data={data} size={[1000,500]} objKey='deathIncrease' color={'#363636'}/>
+          <div className='chart-container'>
+            <BarChart data={data} size={[1080,500]} objKey='deathIncrease' color={'#363636'}/>
+            <Key statistic="deaths" />
+          </div>
         </div>
       </div>
     )

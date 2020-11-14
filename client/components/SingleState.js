@@ -4,6 +4,7 @@ import { stateHash } from '../constants';
 import { dateConverter } from '../utils';
 import { dateOptions } from '../constants';
 import { Link } from 'react-router-dom';
+import { Key } from './Key';
 
 import StateBarChart from './StateBarChart';
 
@@ -49,7 +50,10 @@ export default class SingleState extends React.Component {
               <p className='total'>{latestData.positive.toLocaleString()} total cases reported</p>
             </div> : ''
           }
-          <StateBarChart data={data} size={[1000,500]} objKey='positiveIncrease' color={'#C70039'}/>
+          <div className='chart-container'>
+            <StateBarChart data={data} size={[1080,500]} objKey='positiveIncrease' color={'#C70039'}/>
+            <Key statistic="cases" />
+          </div>
         </div>
         <div className='section-container'>
           {
@@ -58,7 +62,10 @@ export default class SingleState extends React.Component {
               <p className='total'>{latestData.death.toLocaleString()} total deaths reported</p>
             </div> : ''
           }
-          <StateBarChart data={data} size={[1000,500]} objKey='deathIncrease' color={'#363636'}/>
+          <div className='chart-container'>
+            <StateBarChart data={data} size={[1080,500]} objKey='deathIncrease' color={'#363636'}/>
+            <Key statistic="deaths" />
+          </div>
         </div>
       </div>
     )

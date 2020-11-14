@@ -32,7 +32,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 16px 2px #0B090A; }
+  box-shadow: 0 2px 16px 2px #0B090A;
+  z-index: 500; }
   #navbar a {
     color: white;
     text-decoration: none;
@@ -165,3 +166,53 @@ h1 {
   font-weight: 600;
   font-style: italic;
   text-shadow: 2px 2px 5px #0B090A; }
+
+.about {
+  padding: 2rem;
+  background: white; }
+  .about p {
+    font-size: 1.2rem; }
+
+.chart-container {
+  position: relative;
+  margin: 3rem 0 0 0; }
+
+.key {
+  background: white;
+  width: 80%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  box-shadow: 1px 1px 8px #0B090A;
+  top: -1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 1.2rem; }
+
+.keyportion {
+  margin: 0 0 0 2rem;
+  display: flex;
+  align-items: center; }
+  .keyportion span {
+    display: inline-block;
+    width: 3rem;
+    height: 1rem;
+    margin: 0 0.3rem 0 0; }
+  .keyportion .area {
+    opacity: 0.6; }
+    .keyportion .area__cases {
+      background: #BA181B; }
+    .keyportion .area__deaths {
+      background: #161A1D; }
+  .keyportion .line {
+    transform: translate(0, -50%); }
+    .keyportion .line__cases {
+      border-bottom: 4px solid #BA181B; }
+    .keyportion .line__deaths {
+      border-bottom: 4px solid #161A1D; }
+
+.keylabel {
+  font-weight: 600;
+  font-style: italic; }

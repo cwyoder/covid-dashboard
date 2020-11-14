@@ -25,7 +25,7 @@ export default class BarChart extends React.Component {
     }).reverse();
     const averages = intervalAverages(dataCopy, 7, this.props.objKey);
 
-    const margin = {top: 20, right: 30, bottom: 30, left: 40};
+    const margin = {top: 60, right: 40, bottom: 50, left: 60};
 
     const wbar = this.props.size && dataCopy.length > 0 ? (this.props.size[0] - margin.right - margin.left) / dataCopy.length : 0;
 
@@ -52,7 +52,7 @@ export default class BarChart extends React.Component {
       .attr("class", "grid")
       .attr("transform", `translate(${margin.left},0)`)
       .call(axisLeft(yScaleAvg).ticks(null, "s")
-        .tickSize(-this.props.size[0])
+        .tickSize(-this.props.size[0] + margin.right + margin.left)
         .tickFormat(""))
       .call(g => g.select(".domain").remove())
 

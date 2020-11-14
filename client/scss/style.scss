@@ -47,6 +47,7 @@ body {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 16px 2px $rich-black;
+  z-index: 500;
 
   a {
     color: white;
@@ -227,4 +228,70 @@ h1 {
   font-weight: 600;
   font-style: italic;
   text-shadow: 2px 2px 5px $rich-black;
+}
+
+.about {
+  padding: 2rem;
+  background: white;
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.chart-container {
+  position: relative;
+  margin: 3rem 0 0 0;
+}
+
+.key {
+  background: white;
+  width: 80%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  box-shadow: 1px 1px 8px $rich-black;
+  top: -1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 1.2rem;
+}
+
+.keyportion {
+  margin: 0 0 0 2rem;
+  display: flex;
+  align-items: center;
+  span {
+    display: inline-block;
+    width: 3rem;
+    height: 1rem;
+    margin: 0 0.3rem 0 0;
+  }
+
+  .area {
+    &__cases {
+      background: $background-red;
+    }
+    &__deaths {
+      background: $eerie-black;
+    }
+    opacity: 0.6;
+  }
+
+  .line {
+    &__cases {
+      border-bottom: 4px solid $background-red;
+    }
+    &__deaths {
+      border-bottom: 4px solid $eerie-black;
+    }
+    transform: translate(0, -50%);
+  }
+}
+
+.keylabel {
+  font-weight: 600;
+  font-style: italic;
 }
