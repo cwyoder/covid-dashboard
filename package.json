@@ -6,6 +6,8 @@
   "scripts": {
     "build": "webpack",
     "start": "node server",
+    "sass": "node-sass ./client/scss -o ./public",
+    "sass:watch": "node-sass -w ./client/scss -o ./public",
     "build:dev": "npm run build -- --watch --mode development",
     "start:dev": "nodemon server --ignore dist/ --ignore client/ & npm run build:dev"
   },
@@ -23,6 +25,7 @@
     "@babel/preset-react": "^7.12.5",
     "axios": "^0.21.0",
     "babel-loader": "^8.2.1",
+    "node-sass": "^5.0.0",
     "nodemon": "^2.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

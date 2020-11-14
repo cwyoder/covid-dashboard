@@ -1,0 +1,15 @@
+.tick line {
+  stroke: lightgray;
+}
+.tick:first-child line {
+  stroke: black;
+  stroke-width: 2px;
+}
+.tick text {
+  font-size: 14px;
+}
+
+.x-axis .tick line{
+  stroke: black;
+  stroke-width: 1px;
+}
