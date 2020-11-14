@@ -15,20 +15,10 @@ export default class Navbar extends React.Component{
           </Link>
         </div>
         <div className='nav-items'>
-          <ul>
-            <li>
-              <Link className="navbar-link" to="/">U.S. total</Link>
-            </li>
-            <li>
-              <Link className="navbar-link" to="/states">By State</Link>
-            </li>
-            <li>
-              <Link className="navbar-link" to="/hospital">Hospital statistics</Link>
-            </li>
-            <li>
-              <Link className="navbar-link" to="/about">About</Link>
-            </li>
-          </ul>
+          <Link className="navbar-link" to="/">U.S. total</Link>
+          <Link className="navbar-link" to="/states">By State</Link>
+          <Link className="navbar-link" to="/hospital">Hospital statistics</Link>
+          <Link className="navbar-link" to="/about">About</Link>
         </div>
       </nav>
     )

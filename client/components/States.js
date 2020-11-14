@@ -21,7 +21,8 @@ export default class States extends React.Component {
     const { data } = this.state;
     return (
       <div>
-        <h1>State selector</h1>
+        <h1>All states</h1>
+        <p className="instrux">Click on a state to see more details</p>
         <table className='state-table'>
           <thead>
             <tr>

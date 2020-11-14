@@ -1,3 +1,14 @@
+//import?
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap');
+
+//Colors
+$background-red: #BA181B;
+$background-red-alt: #E5383B;
+$navbar-red: #660708;
+$navbar-hover: #390405;
+$eerie-black: #161A1D;
+$rich-black: #0B090A;
+
 .tick line {
   stroke: lightgray;
 }
@@ -12,4 +23,208 @@
 .x-axis .tick line{
   stroke: black;
   stroke-width: 1px;
+}
+
+* {
+  margin: 0rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: $background-red;
+  min-height: 100vh;
+  padding: 0 0 3rem 0;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: $navbar-red;
+  padding: 0 1rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 16px 2px $rich-black;
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .nav-items {
+    width: 50vw;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+
+    a {
+      height: 3rem;
+      padding: 2rem 2rem 0.5rem 2rem;
+      display: block;
+    }
+
+    a:hover {
+      background: $navbar-hover
+    }
+  }
+}
+
+.home-logo {
+  font-size: 2rem;
+}
+
+svg {
+  background: white;
+}
+
+main {
+  padding: 7rem 1rem 2rem 1rem;
+}
+
+main > div {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: white;
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 5px $rich-black;
+  margin: 0 0 3rem 0;
+  font-style: italic;
+}
+
+.section-container {
+  margin: 0 0 3rem 0;
+}
+
+.daily {
+  color: white;
+  margin: 1rem 0;
+  text-shadow: 2px 2px 5px $rich-black;
+
+  h2 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin: 0 0 0.5rem 0;
+  }
+
+  p.dateline {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 2px;
+    display: inline-block;
+    border-bottom: 1px solid white;
+    margin: 0 0 0.5rem 0;
+  }
+
+  p.total {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+}
+
+.back {
+  a {
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    text-shadow: 2px 2px 5px $rich-black;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+
+    &:hover {
+      background: $navbar-hover;
+    }
+  }
+
+  margin: 1rem 0;
+  transform: translate(-0.5rem, 0);
+}
+
+#footer {
+  font-size: 0.7rem;
+  position: fixed;
+  height: 2rem;
+  bottom: 0;
+  padding: 0.5rem;
+  width: 100%;
+  background-color: $navbar-red;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+
+  a {
+    color: white;
+  }
+
+  p {
+    margin: 0 1rem 0 0;
+    padding: 0 1rem 0 0;
+    border-right: 2px solid white;
+
+    &:last-child{
+      margin: 0;
+      padding: 0;
+      border-right: none;
+    }
+  }
+}
+
+.state-table {
+  background: white;
+  padding: 2rem;
+  width: 100%;
+  font-size: 1.2rem;
+  border-spacing: 0 1rem;
+
+  tr {
+    td {
+      text-align: right;
+      padding: 0 0 1rem 0;
+      border-bottom: 1px solid black;
+      &:first-child {
+        text-align: left;
+        font-weight: bold;
+      }
+    }
+    th {
+      text-align: right;
+      font-size: 1rem;
+      padding: 0 0 0.5rem 0;
+      border-bottom: 2px solid black;
+      &:first-child {
+        text-align: left;
+      }
+    }
+  }
+
+  a {
+    color: $background-red;
+    text-decoration: none;
+
+    &:hover {
+      color: $navbar-hover;
+    }
+  }
+
+  .ital-cell {
+    font-style: italic;
+    font-weight: 500;
+  }
+}
+
+.instrux {
+  color: white;
+  margin: 1rem 0;
+  font-weight: 600;
+  font-style: italic;
+  text-shadow: 2px 2px 5px $rich-black;
 }

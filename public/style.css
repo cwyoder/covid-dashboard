@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap");
 .tick line {
   stroke: lightgray; }
 
@@ -11,3 +12,156 @@
 .x-axis .tick line {
   stroke: black;
   stroke-width: 1px; }
+
+* {
+  margin: 0rem;
+  font-family: 'Montserrat', sans-serif; }
+
+body {
+  background: #BA181B;
+  min-height: 100vh;
+  padding: 0 0 3rem 0; }
+
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #660708;
+  padding: 0 1rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 16px 2px #0B090A; }
+  #navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold; }
+  #navbar .nav-items {
+    width: 50vw;
+    list-style: none;
+    display: flex;
+    justify-content: space-around; }
+    #navbar .nav-items a {
+      height: 3rem;
+      padding: 2rem 2rem 0.5rem 2rem;
+      display: block; }
+    #navbar .nav-items a:hover {
+      background: #390405; }
+
+.home-logo {
+  font-size: 2rem; }
+
+svg {
+  background: white; }
+
+main {
+  padding: 7rem 1rem 2rem 1rem; }
+
+main > div {
+  max-width: 1080px;
+  margin: 0 auto; }
+
+h1 {
+  color: white;
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 5px #0B090A;
+  margin: 0 0 3rem 0;
+  font-style: italic; }
+
+.section-container {
+  margin: 0 0 3rem 0; }
+
+.daily {
+  color: white;
+  margin: 1rem 0;
+  text-shadow: 2px 2px 5px #0B090A; }
+  .daily h2 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin: 0 0 0.5rem 0; }
+  .daily p.dateline {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 2px;
+    display: inline-block;
+    border-bottom: 1px solid white;
+    margin: 0 0 0.5rem 0; }
+  .daily p.total {
+    font-size: 2rem;
+    font-weight: 600; }
+
+.back {
+  margin: 1rem 0;
+  transform: translate(-0.5rem, 0); }
+  .back a {
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    text-shadow: 2px 2px 5px #0B090A;
+    font-size: 1.2rem;
+    padding: 0.5rem; }
+    .back a:hover {
+      background: #390405; }
+
+#footer {
+  font-size: 0.7rem;
+  position: fixed;
+  height: 2rem;
+  bottom: 0;
+  padding: 0.5rem;
+  width: 100%;
+  background-color: #660708;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600; }
+  #footer a {
+    color: white; }
+  #footer p {
+    margin: 0 1rem 0 0;
+    padding: 0 1rem 0 0;
+    border-right: 2px solid white; }
+    #footer p:last-child {
+      margin: 0;
+      padding: 0;
+      border-right: none; }
+
+.state-table {
+  background: white;
+  padding: 2rem;
+  width: 100%;
+  font-size: 1.2rem;
+  border-spacing: 0 1rem; }
+  .state-table tr td {
+    text-align: right;
+    padding: 0 0 1rem 0;
+    border-bottom: 1px solid black; }
+    .state-table tr td:first-child {
+      text-align: left;
+      font-weight: bold; }
+  .state-table tr th {
+    text-align: right;
+    font-size: 1rem;
+    padding: 0 0 0.5rem 0;
+    border-bottom: 2px solid black; }
+    .state-table tr th:first-child {
+      text-align: left; }
+  .state-table a {
+    color: #BA181B;
+    text-decoration: none; }
+    .state-table a:hover {
+      color: #390405; }
+  .state-table .ital-cell {
+    font-style: italic;
+    font-weight: 500; }
+
+.instrux {
+  color: white;
+  margin: 1rem 0;
+  font-weight: 600;
+  font-style: italic;
+  text-shadow: 2px 2px 5px #0B090A; }

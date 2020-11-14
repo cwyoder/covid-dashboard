@@ -30,25 +30,25 @@ export default class Home extends React.Component {
     }
     return (
       <div>
-        <h1>United States</h1>
+        <h1>COVID in the United States</h1>
         <div className='section-container'>
           {
             latestData.date ? <div className='daily daily__cases'>
               <p className='dateline'>Latest data: {latestDate.toLocaleDateString("en-US", dateOptions)}</p>
-              <h2>+ {latestData.positiveIncrease.toLocaleString()} cases</h2>
-              <p className='total'>{latestData.positive.toLocaleString()} total cases</p>
+              <h2>+ {latestData.positiveIncrease.toLocaleString()} cases reported</h2>
+              <p className='total'>{latestData.positive.toLocaleString()} total cases reported</p>
             </div> : ''
           }
-          <BarChart data={data} size={[800,400]} objKey='positiveIncrease' color={'#C70039'}/>
+          <BarChart data={data} size={[1000,500]} objKey='positiveIncrease' color={'#BA181B'}/>
         </div>
         <div className='section-container'>
           {
             latestData.date ? <div className='daily daily__cases'>
-              <h2>+ {latestData.deathIncrease.toLocaleString()} deaths</h2>
-              <p className='total'>{latestData.death.toLocaleString()} total deaths</p>
+              <h2>+ {latestData.deathIncrease.toLocaleString()} deaths reported</h2>
+              <p className='total'>{latestData.death.toLocaleString()} total deaths reported</p>
             </div> : ''
           }
-          <BarChart data={data} size={[800,400]} objKey='deathIncrease' color={'#363636'}/>
+          <BarChart data={data} size={[1000,500]} objKey='deathIncrease' color={'#363636'}/>
         </div>
       </div>
     )

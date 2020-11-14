@@ -3,6 +3,7 @@ import axios from 'axios';
 import { stateHash } from '../constants';
 import { dateConverter } from '../utils';
 import { dateOptions } from '../constants';
+import { Link } from 'react-router-dom';
 
 import StateBarChart from './StateBarChart';
 
@@ -36,25 +37,28 @@ export default class SingleState extends React.Component {
     }
     return (
       <div>
-        <h1>{stateName}</h1>
+        <div className='back'>
+          <Link to="/states">❮❮ Back to states</Link>
+        </div>
+        <h1>COVID in {stateName}</h1>
         <div className='section-container'>
           {
             latestData.date ? <div className='daily daily__cases'>
               <p className='dateline'>Latest data: {latestDate.toLocaleDateString("en-US", dateOptions)}</p>
-              <h2>+ {latestData.positiveIncrease.toLocaleString()} cases</h2>
-              <p className='total'>{latestData.positive.toLocaleString()} total cases</p>
+              <h2>+ {latestData.positiveIncrease.toLocaleString()} cases reported</h2>
+              <p className='total'>{latestData.positive.toLocaleString()} total cases reported</p>
             </div> : ''
           }
-          <StateBarChart data={data} size={[800,400]} objKey='positiveIncrease' color={'#C70039'}/>
+          <StateBarChart data={data} size={[1000,500]} objKey='positiveIncrease' color={'#C70039'}/>
         </div>
         <div className='section-container'>
           {
             latestData.date ? <div className='daily daily__cases'>
-              <h2>+ {latestData.deathIncrease.toLocaleString()} deaths</h2>
-              <p className='total'>{latestData.death.toLocaleString()} total deaths</p>
+              <h2>+ {latestData.deathIncrease.toLocaleString()} deaths reported</h2>
+              <p className='total'>{latestData.death.toLocaleString()} total deaths reported</p>
             </div> : ''
           }
-          <StateBarChart data={data} size={[800,400]} objKey='deathIncrease' color={'#363636'}/>
+          <StateBarChart data={data} size={[1000,500]} objKey='deathIncrease' color={'#363636'}/>
         </div>
       </div>
     )
